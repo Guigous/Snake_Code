@@ -1,31 +1,26 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// ESTE EXERCÍCIO FAZ PARTE DAS ATIVIDADES DA AVALIAÇÃO FINAL;
-/// ASSISTA A AULA GRAVADA DISPONÍVEL NO CONTEÚDO DO EXERCÍCIO DADO;
-/// UTILIZE O CONTEÚDO EXTRA DA AULA PARA AUXILIAR NA TAREFA;
-/// O EXERCÍCIO DEVE SER ENTREGUE DE MANEIRA INDIVÍDUAL;
-/// FAÇA OS COMENTÁRIOS NOS LOCAIS MARCADOS DENTRO DO CÓDIGO;
-/// CRIE UM REPOSITÓRIO REMOTO E SUBMETA O SEU PROJETO COMPLETO;
-/// AO TÉRMINO ENVIE O LINK PARA O ATIVIDADE ABERTA.
-/// </summary>
-
 [RequireComponent(typeof(BoxCollider2D))]
 public class Snake : MonoBehaviour
 {
     //
     private List<Transform> _segments = new List<Transform>();
+    //
     public Transform segmentPrefab;
+    //
     public Vector2 direction = Vector2.right;
+    //
     public int initialSize = 4;
         
     //
     private void Start()
     {
+        //
         ResetState();
     }
-
+    
+    //
     private void Update()
     {
         //
@@ -74,6 +69,7 @@ public class Snake : MonoBehaviour
     //
     public void ResetState()
     {
+        //
         this.direction = Vector2.right;
         this.transform.position = Vector3.zero;
 
@@ -98,7 +94,9 @@ public class Snake : MonoBehaviour
         //
         if (other.tag == "Food") {
             Grow();
-        } else if (other.tag == "Obstacle") {
+        } 
+        //
+        else if (other.tag == "Obstacle") {
             ResetState();
         }
     }
